@@ -68,6 +68,9 @@ export default function Menu() {
                   src={dish.img}
                   alt={dish.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  width="600"
+                  height="320"
+                  loading="lazy"
                 />
               </div>
               <div className="p-10">

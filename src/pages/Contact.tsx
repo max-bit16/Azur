@@ -94,6 +94,9 @@ export default function Contact() {
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
               alt="Rue d'Antibes Azure Mas"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              width="600"
+              height="750"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
           </div>
@@ -102,6 +105,9 @@ export default function Contact() {
               src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80"
               alt="Intérieur restaurant Azure Mas"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              width="600"
+              height="750"
+              loading="lazy"
             />
           </div>
           <div className="relative overflow-hidden group aspect-[4/5] rounded-lg reveal delay-200">
@@ -109,6 +115,9 @@ export default function Contact() {
               src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80"
               alt="Cocktails élégants Azure Mas"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              width="600"
+              height="750"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:opacity-0" />
           </div>

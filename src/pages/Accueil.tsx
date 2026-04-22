@@ -48,6 +48,10 @@ export default function Accueil() {
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
               alt="Table gastronomique Azure Mas"
               className="w-full h-full object-cover"
+              width="900"
+              height="700"
+              fetchPriority="high"
+              loading="eager"
             />
             <div className="absolute inset-0 ring-1 ring-inset ring-[#C5A059]/10 rounded-lg" />
           </div>
@@ -76,6 +80,9 @@ export default function Accueil() {
                 src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80"
                 alt="Plat fruits de mer Azure Mas"
                 className="w-full h-full object-cover"
+                width="600"
+                height="750"
+                loading="lazy"
               />
             </div>
             <div className="magnetic-img aspect-[4/5] overflow-hidden rounded-lg shadow-2xl">
@@ -83,6 +90,9 @@ export default function Accueil() {
                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80"
                 alt="Cocktail méditerranéen Azure Mas"
                 className="w-full h-full object-cover"
+                width="600"
+                height="750"
+                loading="lazy"
               />
             </div>
           </div>
@@ -129,6 +139,9 @@ export default function Accueil() {
                 src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200&q=80"
                 alt="La terrasse panoramique Azure Mas"
                 className="w-full h-full object-cover"
+                width="1200"
+                height="800"
+                loading="lazy"
               />
               <div className="absolute bottom-12 left-12 z-20">
                 <h3 className="text-h2 font-display text-white mb-2">La Terrasse Panoramique</h3>
@@ -142,6 +155,9 @@ export default function Accueil() {
                   src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80"
                   alt="La cave à vins Azure Mas"
                   className="w-full h-full object-cover"
+                  width="600"
+                  height="400"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <span className="text-white font-serif uppercase tracking-widest text-sm border-b border-white pb-2">La Cave d'Or</span>
@@ -153,6 +169,9 @@ export default function Accueil() {
                   src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80"
                   alt="Le chef en cuisine Azure Mas"
                   className="w-full h-full object-cover"
+                  width="600"
+                  height="400"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <span className="text-white font-serif uppercase tracking-widest text-sm border-b border-white pb-2">Le Geste Pur</span>

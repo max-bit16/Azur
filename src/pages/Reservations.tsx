@@ -62,6 +62,9 @@ export default function Reservations() {
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80"
               alt="Table dressée Azure Mas vue mer"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              width="600"
+              height="750"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700" />
           </div>
