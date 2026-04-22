@@ -85,8 +85,8 @@ export default function Accueil() {
           <div ref={duoRef} className="col-span-12 md:col-span-7 grid grid-cols-2 gap-8">
             <div className="magnetic-img aspect-[4/5] overflow-hidden rounded-lg shadow-2xl translate-y-12">
               <img
-                src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80"
-                alt="Plat fruits de mer Azure Mas"
+                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80"
+                alt="Plat méditerranéen Azure Mas"
                 className="w-full h-full object-cover"
                 width="600"
                 height="750"
@@ -95,8 +95,8 @@ export default function Accueil() {
             </div>
             <div className="magnetic-img aspect-[4/5] overflow-hidden rounded-lg shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80"
-                alt="Cocktail méditerranéen Azure Mas"
+                src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&q=80"
+                alt="Cuisine méditerranéenne Azure Mas"
                 className="w-full h-full object-cover"
                 width="600"
                 height="750"
@@ -174,8 +174,8 @@ export default function Accueil() {
               <div className="magnetic-img relative overflow-hidden group rounded-lg">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10" />
                 <img
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80"
-                  alt="Le chef en cuisine Azure Mas"
+                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=80"
+                  alt="Chef en cuisine Azure Mas"
                   className="w-full h-full object-cover"
                   width="600"
                   height="400"
