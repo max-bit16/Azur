@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#f0c12c",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed": "#cde5ff",
+                    "secondary-container": "#dcdddd",
+                    "primary-container": "#0077b6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary": "#005d90",
+                    "primary-fixed-dim": "#94ccff",
+                    "on-primary-fixed": "#001d32",
+                    "secondary-fixed": "#e2e2e2",
+                    "tertiary": "#755b00",
+                    "outline": "#707881",
+                    "outline-variant": "#bfc7d1",
+                    "on-primary-fixed-variant": "#004b74",
+                    "surface-tint": "#006399",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-surface-variant": "#404850",
+                    "surface-container-low": "#f3f3f4",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#5d5f5f",
+                    "inverse-primary": "#94ccff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#503d00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#d2a500",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#5f6161",
+                    "tertiary-fixed": "#ffdf90",
+                    "background": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-primary-container": "#f3f7ff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-padding": "120px",
+                    "gutter": "32px",
+                    "margin-x": "80px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "display": ["Noto Serif"],
+                    "label-sm": ["Manrope"],
+                    "h1": ["Noto Serif"],
+                    "h3": ["Noto Serif"],
+                    "h2": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .azure-glow:focus {
+            outline: none;
+            border-color: #0077B6;
+            box-shadow: 0 0 15px rgba(0, 119, 182, 0.15);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+        .gold-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .gold-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.8s;
+        }
+        .gold-shimmer:hover::after {
+            left: 100%;
+            top: 100%;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 left-0 w-full z-50 border-b border-[#C5A059]/20 bg-white/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-20 py-8 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-[#0077B6] tracking-tighter">Azure Mas</div>
+<nav class="hidden md:flex gap-10">
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Home</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Menu</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Gallery</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-[#0077B6] border-b border-[#C5A059] pb-1" href="#">Reservations</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Contact</a>
+</nav>
+<button class="font-serif tracking-widest uppercase text-xs antialiased bg-white border border-[#C5A059] text-[#0077B6] px-8 py-3 scale-95 active:scale-90 transition-transform hover:shadow-lg">
+                Réserver
+            </button>
+</div>
+</header>
+<main class="pt-[160px] pb-[120px] px-20">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-gutter">
+<!-- Left Side: Context & Visuals -->
+<div class="w-full md:w-1/3 flex flex-col justify-center">
+<div class="mb-12">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-[0.2em] mb-4 block">Table D'Honneur</span>
+<h1 class="font-display text-display text-primary mb-6">Un Instant de Sérénité</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-md italic">
+                        "Luxury is the silence between notes. Reserve your place at the heart of our Mediterranean retreat."
+                    </p>
+</div>
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Close-up of a beautifully set table with white linen, gold cutlery, and crystal glasses overlooking the blue Mediterranean sea at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhIfrLAhBsyHV6O_2-jnwAKXUeK1iy8shns_iLxZcC-EtpmLZqHhqxXKZC1t1fxZj8OgYWN6UGJBp61BtSyUAZ2dmYOh20HkxgJnB_AqJCAKum-lIaKjhzN27kNF9p3ZnYqRHyjpKQoj2CS53VPzQkBDzUKkVhqz0Whw588qh-6FvjnBRJ03OqE2gdxoCM-yV70vcBwEnG7dbGscJARfRXpnT2-obb4cO0U6bUKhJSFy2Bh_9uRKQMCWZqAYaTqgBrIjF8cvmZ6E"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+</div>
+</div>
+<!-- Right Side: Reservation Form -->
+<div class="w-full md:w-2/3 flex items-start justify-end">
+<div class="glass-panel p-16 w-full max-w-2xl shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<form class="space-y-12">
+<!-- Step Heading -->
+<div class="flex items-center gap-4 border-b border-[#C5A059]/10 pb-8">
+<span class="font-serif italic text-3xl text-tertiary">01</span>
+<h2 class="font-h2 text-h2 text-primary">Détails de Réservation</h2>
+</div>
+<!-- Date & Guests Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-4">
+<label class="font-label-sm text-label-sm text-outline uppercase">Nombre de Convives</label>
+<div class="relative">
+<select class="w-full bg-transparent border-b border-[#C5A059]/30 py-4 px-2 font-serif italic text-lg azure-glow appearance-none focus:border-primary transition-all">
+<option>2 Personnes</option>
+<option>3 Personnes</option>
+<option>4 Personnes</option>
+<option>5+ Personnes</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-primary">expand_more</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-label-sm text-label-sm text-outline uppercase">Heure Souhaitée</label>
+<div class="relative">
+<select class="w-full bg-transparent border-b border-[#C5A059]/30 py-4 px-2 font-serif italic text-lg azure-glow appearance-none focus:border-primary transition-all">
+<option>19:30</option>
+<option>20:00</option>
+<option>20:30</option>
+<option>21:00</option>
+<option>21:30</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-primary">schedule</span>
+</div>
+</div>
+</div>
+<!-- Custom Styled Date Picker Area -->
+<div class="space-y-6">
+<label class="font-label-sm text-label-sm text-outline uppercase">Choisir une Date</label>
+<div class="bg-surface-container-lowest p-8 border border-[#C5A059]/10">
+<div class="flex justify-between items-center mb-8 px-2">
+<span class="font-serif italic text-xl text-primary">Juin 2024</span>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-tertiary hover:text-primary transition-colors" type="button">chevron_left</button>
+<button class="material-symbols-outlined text-tertiary hover:text-primary transition-colors" type="button">chevron_right</button>
+</div>
+</div>
+<div class="calendar-grid text-center font-label-sm text-[10px] text-outline uppercase mb-4">
+<div>Lun</div><div>Mar</div><div>Mer</div><div>Jeu</div><div>Ven</div><div>Sam</div><div>Dim</div>
+</div>
+<div class="calendar-grid text-center">
+<!-- Simplified Calendar Representation -->
+<div class="py-3 text-outline-variant">27</div>
+<div class="py-3 text-outline-variant">28</div>
+<div class="py-3 text-outline-variant">29</div>
+<div class="py-3 text-outline-variant">30</div>
+<div class="py-3 text-outline-variant">31</div>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">1</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">2</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">3</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">4</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">5</button>
+<button class="py-3 font-serif bg-primary text-white shadow-lg" type="button">6</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">7</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">8</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">9</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">10</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">11</button>
+<button class="py-3 font-serif hover:bg-primary-fixed transition-colors" type="button">12</button>
+</div>
+</div>
+</div>
+<!-- Notes Field -->
+<div class="space-y-4">
+<label class="font-label-sm text-label-sm text-outline uppercase">Notes Particulières (Allergies, Célébrations...)</label>
+<textarea class="w-full bg-transparent border-b border-[#C5A059]/30 py-4 px-2 font-serif italic text-lg azure-glow focus:border-primary transition-all resize-none placeholder:text-outline-variant" placeholder="Ex: Anniversaire de mariage, sans gluten..." rows="2"></textarea>
+</div>
+<!-- CTA -->
+<div class="pt-8">
+<button class="gold-shimmer w-full bg-primary py-6 text-white font-serif tracking-widest uppercase text-sm hover:shadow-2xl transition-all duration-500 flex items-center justify-center gap-4" type="submit">
+                                Confirmer la Disponibilité
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center mt-6 font-label-sm text-[10px] text-outline uppercase tracking-wider">
+                                Une confirmation vous sera envoyée par e-mail dans les 15 minutes.
+                            </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full border-t border-[#C5A059]/10 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-20 py-32 max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-serif text-slate-900 mb-2">Azure Mas</div>
+<div class="font-serif italic text-sm text-slate-600">© 2024 Azure Mas. Crafted for the Mediterranean Soul.</div>
+</div>
+<div class="flex gap-12">
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Privacy</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Terms</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Press</a>
+</div>
+</div>
+</footer>
+</body></html>

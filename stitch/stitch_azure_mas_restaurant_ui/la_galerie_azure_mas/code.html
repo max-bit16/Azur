@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600&amp;family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#f0c12c",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed": "#cde5ff",
+                    "secondary-container": "#dcdddd",
+                    "primary-container": "#0077b6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary": "#005d90",
+                    "primary-fixed-dim": "#94ccff",
+                    "on-primary-fixed": "#001d32",
+                    "secondary-fixed": "#e2e2e2",
+                    "tertiary": "#755b00",
+                    "outline": "#707881",
+                    "outline-variant": "#bfc7d1",
+                    "on-primary-fixed-variant": "#004b74",
+                    "surface-tint": "#006399",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-surface-variant": "#404850",
+                    "surface-container-low": "#f3f3f4",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#5d5f5f",
+                    "inverse-primary": "#94ccff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#503d00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#d2a500",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#5f6161",
+                    "tertiary-fixed": "#ffdf90",
+                    "background": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-primary-container": "#f3f7ff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "display": ["Noto Serif"],
+                    "cinzel": ["Cinzel"],
+                    "label-sm": ["Manrope"],
+                    "h1": ["Noto Serif"],
+                    "h2": ["Noto Serif"],
+                    "body-md": ["Manrope"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .magnetic-zoom:hover img {
+            transform: scale(1.1);
+        }
+        .azure-vignette {
+            transition: all 0.5s ease;
+        }
+        .magnetic-zoom:hover .azure-vignette {
+            background: radial-gradient(circle, transparent 40%, rgba(0, 119, 182, 0.15) 100%);
+            opacity: 1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 border-b border-[#C5A059]/20 bg-white/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<nav class="flex justify-between items-center px-20 py-8 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-[#0077B6] tracking-tighter">Azure Mas</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Home</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Menu</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-[#0077B6] border-b border-[#C5A059] pb-1" href="#">Gallery</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Reservations</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Contact</a>
+</div>
+<button class="bg-white border border-[#C5A059]/40 text-[#0077B6] px-8 py-3 font-serif uppercase tracking-[0.2em] text-[10px] hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-500">
+                Réserver
+            </button>
+</nav>
+</header>
+<main class="pt-[160px] min-h-screen">
+<!-- Hero Section -->
+<section class="max-w-screen-2xl mx-auto px-20 mb-32">
+<div class="text-center space-y-6">
+<h1 class="font-cinzel text-display text-on-surface tracking-widest uppercase">Galerie</h1>
+<div class="w-24 h-[1px] bg-[#C5A059] mx-auto"></div>
+<p class="font-display italic text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Une symphonie visuelle de saveurs méditerranéennes et d'architecture sereine.
+                </p>
+</div>
+</section>
+<!-- Bento Photo Grid -->
+<section class="max-w-screen-2xl mx-auto px-20 pb-[120px]">
+<div class="grid grid-cols-12 grid-rows-6 gap-8 h-[1600px]">
+<!-- Main Featured: Terrace View -->
+<div class="col-span-8 row-span-3 relative overflow-hidden group magnetic-zoom rounded-DEFAULT shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Panoramic view of a sun-drenched white marble terrace overlooking the sparkling azure Mediterranean sea at noon with soft light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhIA8dpv6mJ24LuLgszeMxfPTDDqyjRcyErtbHdyCyYIXC7dh8WOxTbW36-fB_h4xGdCYnHz_YTM29Qla3unj3k6mE3X_LmwBLhBQUeMWh1DJ6gIBTpuql_YssvZesL4WdZseBqwdoTuB4VuD1wcX77rCW8UhCXWCoRBil-FhcJEVR32aIW4nYyqW7hgH2F4z_luT4cZQIZ-Cxc6czkzadGnO3RGkx0PJNT2H6RwBLjsCLgsMp-4d-wHG-vVEDxLUPZ5T38aMz03Y"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl font-light">fullscreen</span>
+</div>
+<div class="absolute bottom-10 left-10 text-white z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+<p class="font-cinzel uppercase tracking-[0.3em] text-sm">La Terrasse des Oliviers</p>
+</div>
+</div>
+<!-- Culinary Art 1 -->
+<div class="col-span-4 row-span-2 relative overflow-hidden group magnetic-zoom rounded-DEFAULT border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Gourmet seafood dish with grilled octopus and micro-greens on a minimalist ceramic plate, soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbtwfJ0GLxaaUagIgN_I3uABnOZFvGy1oPsK62cOIgEdBKR45EiQ0cmNhB_7QssQs4QBVFoktmmVjAUhoTW0kfU2G3e-bEYpQCSiv0_3QDg8v_RQTNhehBICp3TqKbSgg8ZmMvi7XNwKB5YGJP4hbTqzUqf_ZgpR9qTjazg6V1jkavjmCVdjnS55VCdAq0GlvVbyRaCF9_3G4BURQacjxr-4aqgJ6U2Pq1HISwgROzNUwSY-DvJTumHKxl8BFMLoOmUvEeqgJ1Ric"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">fullscreen</span>
+</div>
+</div>
+<!-- Open Kitchen -->
+<div class="col-span-4 row-span-2 relative overflow-hidden group magnetic-zoom rounded-DEFAULT border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Modern high-end open kitchen with stainless steel appliances and white marble counters, chef in white uniform in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEqB-lAEa2MNhchnH3itKAPvQad5weeW3Ad136EZuiWvizWozJdcJv6aiUz8NPZTuisVX0Qtl5kAg9xNu0Yg4Rl-hV3CFfrfoXWsXKauNYo46uVsz-PoXs-gb5E2CrOSVske9Da6puNKoMs4nC3mO8kcNb6ilZRY_EF0lcVBfKaAKXH5GHnmGlmHIqMm89Rvt5sm_LcJNuGPCMHAp541k6WXbpkLER7zsr9cTLNh08W9iie_CCxkj6Dg-tm7d7FbGBYuPHSvoAGdU"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">fullscreen</span>
+</div>
+</div>
+<!-- Interior Design -->
+<div class="col-span-4 row-span-4 relative overflow-hidden group magnetic-zoom rounded-DEFAULT border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Minimalist architectural interior of the restaurant featuring tall arches, white walls, and elegant beige linen chairs, airy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJa1qypc2wJKiO6G784qHapZMgrjYK1KZHst98XvJBPek14TMKDzw-d408KSFdaxIxr38lk2HBU7By1gIZw-vyNyeawEQc_bQ1mxFq-S5EuESLh5F6o9xfLfGaMxYF_lm_YQlX35BwQHX2VzSmM4sMAH-zrbXXUwfUXhFoWmYNvCTF-jHg1Oz00DctkuRvMMNv7hk7D7Eyqbkm_NNVIM7g2KXndhvIJSXtZhEGf0ktDHPW5PqcnvOgN0OsKXIFQdPphk1iTBlnIjA"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">fullscreen</span>
+</div>
+</div>
+<!-- Wine Detail -->
+<div class="col-span-4 row-span-2 relative overflow-hidden group magnetic-zoom rounded-DEFAULT border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Close-up of a crystal wine glass with white wine on a terrace table, golden sunset light reflecting in the liquid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3jbrpmu4TyCGseJn5mjohsrmtsCOQmmCxrNPGBCtOTU_G8rtzNJVHkeefWgIsliLGcfdP9AjUa4in8bnlW2xIdqf5jIk0f_PYRqDfaqxRefXYZcIXWalscrCVC8F3m1k8TG2ATi6jvw6-wOuA8yO1_7PHyKkZOJQqbs6QIYy581fs4NgITPP_xDvQ5RTxMM0QiYQU0eq0fz-886Yg6l-WV6UPZ8E312i2H_vepcunapFi33cvOxcS4HXClrj-JR-NrucrXong0jM"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">fullscreen</span>
+</div>
+</div>
+<!-- Final Dish -->
+<div class="col-span-4 row-span-1 relative overflow-hidden group magnetic-zoom rounded-DEFAULT border border-[#C5A059]/10">
+<img class="w-full h-full object-cover transition-transform duration-[2000ms] ease-out" data-alt="Delicate pastry dessert with citrus and gold leaf on a white marble surface, soft focused background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM8CSKryOqf4MVs2F84dCZl6yy0MbH6XU7H2yS_aOPH1EnDYMp_nAWqKIcuJFjygaJ_rG1CwPrd7EcQbQweuOfH5jjPqwJ23uxom5Ukd0nzIecZsLmaxYkNDbfBICywp33jVBhrDpSOPulCMW_TPUtpUIkUU37eshiLxPa1f7AgmWVXApmsuEOdBxyQafgkBZbooytZI1CxPsktyRhk5t1EcZhV44zY_H6KJCItJQsJFOEmKDSi6PqELJQN8BravEOen9jR8cZF3g"/>
+<div class="azure-vignette absolute inset-0 opacity-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">fullscreen</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Simulated Lightbox Overlay (Hidden/Passive state) -->
+<section class="fixed inset-0 z-[60] bg-slate-900/90 backdrop-blur-xl flex items-center justify-center p-20 opacity-0 pointer-events-none transition-opacity duration-700">
+<button class="absolute top-10 right-10 text-white hover:text-[#C5A059] transition-colors">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<div class="relative w-full h-full flex flex-col items-center justify-center">
+<img class="max-h-[819px] border border-white/20 shadow-2xl" data-alt="Enlarged view of the terrace at Azure Mas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1z8kLb3jy3HLzFBJvZ5o7Sf2ux2udV3R2nINmr8i3EX6pw2gIqWvTrwthAWHfRndDR3fOHwRKXUzIk7lKl_5AD3R7TE1Sce1pV9qo0qLhUFE_OltrnjJeMmzjvOuYljDZp20MAH30-dAiExw-tnlUrcnArowTIkI9ufQ-9r53MEpo3WpuQa0DQsTCXkxFSOVfGdKECQ972O_hyBzmv9uLbG2-pAJjhZmyJTBnHdPhGO2gTLBo7MpjKbPTAkU0rizWjwTUEM58WLg"/>
+<div class="mt-10 text-center text-white">
+<p class="font-cinzel text-xl tracking-widest uppercase">L'immensité Bleue</p>
+<p class="font-serif italic text-white/60 mt-2">Terrasse Principale — 12:45</p>
+</div>
+</div>
+<button class="absolute left-10 text-white/40 hover:text-white">
+<span class="material-symbols-outlined text-6xl">chevron_left</span>
+</button>
+<button class="absolute right-10 text-white/40 hover:text-white">
+<span class="material-symbols-outlined text-6xl">chevron_right</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#C5A059]/10 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-20 py-32 max-w-screen-2xl mx-auto">
+<div class="mb-12 md:mb-0">
+<div class="text-lg font-serif text-slate-900 mb-4">Azure Mas</div>
+<p class="font-serif italic text-sm text-slate-600">© 2024 Azure Mas. Crafted for the Mediterranean Soul.</p>
+</div>
+<div class="flex gap-12">
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Privacy</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Terms</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Press</a>
+</div>
+</div>
+</footer>
+</body></html>

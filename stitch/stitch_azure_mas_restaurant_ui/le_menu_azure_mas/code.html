@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#f0c12c",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed": "#cde5ff",
+                    "secondary-container": "#dcdddd",
+                    "primary-container": "#0077b6",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary": "#005d90",
+                    "primary-fixed-dim": "#94ccff",
+                    "on-primary-fixed": "#001d32",
+                    "secondary-fixed": "#e2e2e2",
+                    "tertiary": "#755b00",
+                    "outline": "#707881",
+                    "outline-variant": "#bfc7d1",
+                    "on-primary-fixed-variant": "#004b74",
+                    "surface-tint": "#006399",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-surface-variant": "#404850",
+                    "surface-container-low": "#f3f3f4",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#5d5f5f",
+                    "inverse-primary": "#94ccff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#503d00",
+                    "on-secondary-fixed-variant": "#454747",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#d2a500",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#5f6161",
+                    "tertiary-fixed": "#ffdf90",
+                    "background": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-primary-container": "#f3f7ff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-padding": "120px",
+                    "gutter": "32px",
+                    "margin-x": "80px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "display": ["Noto Serif"],
+                    "label-sm": ["Manrope"],
+                    "h1": ["Noto Serif"],
+                    "h3": ["Noto Serif"],
+                    "h2": ["Noto Serif"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px);
+            border-color: #C5A059;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+        }
+        .gold-sparkle {
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
+            transition: all 0.7s;
+        }
+        .glass-card:hover .gold-sparkle {
+            left: 150%;
+        }
+        .magnetic-zoom {
+            overflow: hidden;
+        }
+        .magnetic-zoom img {
+            transition: transform 0.8s ease-out;
+        }
+        .magnetic-zoom:hover img {
+            transform: scale(1.1);
+        }
+        .overlay-content {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-out;
+        }
+        .glass-card:hover .overlay-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .wine-filter-active {
+            color: #0077B6;
+            border-bottom: 1px solid #C5A059;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 border-b border-[#C5A059]/20 bg-white/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-20 py-8 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif italic text-[#0077B6] tracking-tighter">Azure Mas</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Home</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-[#0077B6] border-b border-[#C5A059] pb-1" href="#">Menu</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Gallery</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Reservations</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Contact</a>
+</nav>
+<button class="font-serif tracking-widest uppercase text-xs antialiased px-8 py-3 bg-white border border-[#C5A059]/30 text-[#0077B6] hover:scale-95 active:scale-90 transition-transform">Réserver</button>
+</div>
+</header>
+<main class="pt-[160px] pb-32">
+<!-- Hero Title -->
+<section class="max-w-screen-2xl mx-auto px-20 mb-24">
+<div class="max-w-3xl">
+<p class="font-label-sm text-label-sm text-tertiary uppercase mb-4">La Carte Saisonnière</p>
+<h1 class="font-h1 text-display text-primary mb-6">L'Art de la Mer &amp; de la Terre</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic">Une symphonie culinaire inspirée par les rivages d'azur et les jardins secrets de Provence.</p>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="max-w-screen-2xl mx-auto px-20 mb-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Dish Card 1 -->
+<div class="glass-card relative overflow-hidden group">
+<div class="gold-sparkle"></div>
+<div class="magnetic-zoom h-80">
+<img class="w-full h-full object-cover" data-alt="Gourmet grilled langoustines on a white porcelain plate with citrus zest and microgreens in a sunlit Mediterranean setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJQQIl8wOK_4BgrPAbqv-c5-VM0-EATgtAZue_gmQMuwqFntSkj2v7Fy2oj0JrnSQb0HCoWW9tyD3cL3AOhZzx3bZtzAM0pohHdmyrlR6h9CVmDZtgN339LYcj5B85_rwGULKtp1fwAYlz__U_H0KAKCOI1hWwCmOu-pCfUu1TqPKXHmGjoNFko90BtlG-riRcmT2oLtnwda-B7URIG4d7B-lcPVFQ_joOuIrbDKWsq5oLxAPojsDJpoJu8R5rBozSTcnor1n-A4Q"/>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-h3 text-primary">Langoustine Grillée</h3>
+<span class="font-h3 text-h3 text-tertiary">42€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 italic">Zestes de citron de Menton, émulsion à l'huile d'olive vierge.</p>
+<!-- Hover Overlay Reveal -->
+<div class="overlay-content border-t border-[#C5A059]/10 pt-6 space-y-4">
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Provenance</span>
+<p class="font-body-md text-sm">Pêche côtière de la Baie des Anges</p>
+</div>
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Accord Mets &amp; Vins</span>
+<p class="font-body-md text-sm text-[#0077B6]">Cassis Blanc, Domaine de la Ferme Blanche</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="glass-card relative overflow-hidden group">
+<div class="gold-sparkle"></div>
+<div class="magnetic-zoom h-80">
+<img class="w-full h-full object-cover" data-alt="Exquisite Saint-Pierre fish fillet topped with black truffle shavings and white asparagus in a minimalist luxury plating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHCjM3bYM4PyHot7jtZQjTRTByIm1FzyYmWnwKjefsyyOW_5mX8J5TPB5PaNONpn7vJZ-89dnaKJDBcAW9VSJyQhmi6v6XlV6RWfhw-wTlaN7mzkvgJ7I7C98K4Dv3MCA45Ds3jw7RV5GPBTWnQxDXlDPtQzBqIg1m0wItXLtPtcrQr33p524mBYaPc0CXkflT6aRZ8cxTGShJk46DtM3tYZfkMFaaGcHJpKpoFyeeydpfSsT_tmkVUn-5Gs4CgPABGJwZLw-78co"/>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-h3 text-primary">Saint-Pierre Truffé</h3>
+<span class="font-h3 text-h3 text-tertiary">58€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 italic">Pavé de ligne, fines lamelles de truffe noire du Haut-Var, asperges blanches.</p>
+<div class="overlay-content border-t border-[#C5A059]/10 pt-6 space-y-4">
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Ingrédients Clés</span>
+<p class="font-body-md text-sm">Truffe Tuber Melanosporum, Beurre d'Isigny</p>
+</div>
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Accord Mets &amp; Vins</span>
+<p class="font-body-md text-sm text-[#0077B6]">Meursault 1er Cru, Les Perrières</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Dish Card 3 -->
+<div class="glass-card relative overflow-hidden group">
+<div class="gold-sparkle"></div>
+<div class="magnetic-zoom h-80">
+<img class="w-full h-full object-cover" data-alt="Creamy burrata AOP on a bed of heirloom tomatoes with gold leaf accents and aged balsamic drizzle in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADZmj4947zZANY8iAHra5M7mADRQa-L6gldBKECcoUurqPOnnFDKFFJeVU281KgxEMMwk7wZcAp8xpFYnsEZqdxMep58UXqDqbapi4bkMWYuoqYEiOhBiryYZW-sfcoHxNxG6zGPBx2D3ekus99GEO-axnHTfHHoahVL5tPrNDqOoUnx4VqPEf-y91PoBOoeZej7t5cUB3S1HxUoFj5L8CkoBJNu4vzFm__FhI-wsN-N5s30g7JatQJlykFTgxo4H3jZgLm8PSYYI"/>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-h3 text-primary">Burrata AOP</h3>
+<span class="font-h3 text-h3 text-tertiary">28€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 italic">Cœur crémeux, tomates anciennes, basilic pourpre et or pur 24 carats.</p>
+<div class="overlay-content border-t border-[#C5A059]/10 pt-6 space-y-4">
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Terroir</span>
+<p class="font-body-md text-sm">Sélection artisanale des Pouilles, Italie</p>
+</div>
+<div>
+<span class="font-label-sm text-[10px] uppercase text-slate-400 block mb-1 tracking-widest">Accord Mets &amp; Vins</span>
+<p class="font-body-md text-sm text-[#0077B6]">Côtes de Provence Rosé, Château d'Esclans</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wine List Section -->
+<section class="bg-slate-50 py-section-padding">
+<div class="max-w-screen-2xl mx-auto px-20">
+<div class="text-center mb-20">
+<p class="font-label-sm text-label-sm text-tertiary uppercase mb-4">La Cave d'Exception</p>
+<h2 class="font-h2 text-h1 text-primary">Le Sommelier Virtuel</h2>
+</div>
+<!-- Wine Filters -->
+<div class="flex flex-wrap justify-center gap-12 mb-20 border-b border-[#C5A059]/10 pb-6">
+<button class="font-serif tracking-widest uppercase text-xs wine-filter-active pb-2">Provence Rosés</button>
+<button class="font-serif tracking-widest uppercase text-xs text-slate-400 hover:text-primary transition-colors pb-2">Corsican Whites</button>
+<button class="font-serif tracking-widest uppercase text-xs text-slate-400 hover:text-primary transition-colors pb-2">Champagnes</button>
+<button class="font-serif tracking-widest uppercase text-xs text-slate-400 hover:text-primary transition-colors pb-2">Grands Crus Rouges</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+<!-- Wine Item 1 -->
+<div class="flex justify-between items-end border-b border-[#C5A059]/10 pb-4 group">
+<div>
+<p class="font-h3 text-lg text-primary group-hover:translate-x-2 transition-transform duration-500">Château Miraval Côtes de Provence</p>
+<p class="font-body-md text-sm text-on-surface-variant italic">Notes de fleurs blanches et fraise des bois</p>
+</div>
+<span class="font-h3 text-tertiary">75€</span>
+</div>
+<!-- Wine Item 2 -->
+<div class="flex justify-between items-end border-b border-[#C5A059]/10 pb-4 group">
+<div>
+<p class="font-h3 text-lg text-primary group-hover:translate-x-2 transition-transform duration-500">Garrus by Château d'Esclans</p>
+<p class="font-body-md text-sm text-on-surface-variant italic">Puissance, élégance, le summum du rosé</p>
+</div>
+<span class="font-h3 text-tertiary">190€</span>
+</div>
+<!-- Wine Item 3 -->
+<div class="flex justify-between items-end border-b border-[#C5A059]/10 pb-4 group">
+<div>
+<p class="font-h3 text-lg text-primary group-hover:translate-x-2 transition-transform duration-500">Domaine Ott - Clos Mireille</p>
+<p class="font-body-md text-sm text-on-surface-variant italic">Minéralité saline, reflets cristallins</p>
+</div>
+<span class="font-h3 text-tertiary">95€</span>
+</div>
+<!-- Wine Item 4 -->
+<div class="flex justify-between items-end border-b border-[#C5A059]/10 pb-4 group">
+<div>
+<p class="font-h3 text-lg text-primary group-hover:translate-x-2 transition-transform duration-500">Minuty 281</p>
+<p class="font-body-md text-sm text-on-surface-variant italic">Intensité aromatique, design iconique</p>
+</div>
+<span class="font-h3 text-tertiary">120€</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-screen-2xl mx-auto px-20 pt-section-padding text-center">
+<div class="glass-card py-24 px-12 border-none shadow-none">
+<h2 class="font-h2 text-h2 text-primary mb-8 italic">Une table face à l'horizon vous attend.</h2>
+<button class="px-12 py-5 bg-primary text-white font-serif tracking-widest uppercase text-xs hover:bg-primary/90 transition-all shadow-xl">Réserver l'Expérience</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#C5A059]/10 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-20 py-32 max-w-screen-2xl mx-auto">
+<div class="mb-12 md:mb-0">
+<div class="text-lg font-serif text-slate-900 mb-4">Azure Mas</div>
+<p class="font-serif italic text-sm text-slate-600">© 2024 Azure Mas. Crafted for the Mediterranean Soul.</p>
+</div>
+<div class="flex gap-12">
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Privacy</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Terms</a>
+<a class="font-serif italic text-sm text-slate-400 hover:text-[#0077B6] transition-colors duration-300" href="#">Press</a>
+</div>
+</div>
+</footer>
+</body></html>

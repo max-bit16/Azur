@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;600&amp;family=Cinzel:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#f0c12c",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed": "#cde5ff",
+                        "secondary-container": "#dcdddd",
+                        "primary-container": "#0077b6",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary": "#005d90",
+                        "primary-fixed-dim": "#94ccff",
+                        "on-primary-fixed": "#001d32",
+                        "secondary-fixed": "#e2e2e2",
+                        "tertiary": "#755b00",
+                        "outline": "#707881",
+                        "outline-variant": "#bfc7d1",
+                        "on-primary-fixed-variant": "#004b74",
+                        "surface-tint": "#006399",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-surface-variant": "#404850",
+                        "surface-container-low": "#f3f3f4",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-surface": "#2f3131",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#584400",
+                        "on-background": "#1a1c1c",
+                        "secondary": "#5d5f5f",
+                        "inverse-primary": "#94ccff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-container": "#503d00",
+                        "on-secondary-fixed-variant": "#454747",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#d2a500",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#5f6161",
+                        "tertiary-fixed": "#ffdf90",
+                        "background": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-primary-container": "#f3f7ff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "section-padding": "120px",
+                        "gutter": "32px",
+                        "margin-x": "80px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display": ["Cinzel", "Noto Serif", "serif"],
+                        "label-sm": ["Manrope"],
+                        "h1": ["Cinzel", "Noto Serif", "serif"],
+                        "h3": ["Cinzel", "Noto Serif", "serif"],
+                        "h2": ["Cinzel", "Noto Serif", "serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .gold-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .gold-ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(197, 160, 89, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease-out, height 0.6s ease-out;
+        }
+        .gold-ripple:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-white">
+<!-- Scroll Progress Line -->
+<div class="fixed top-0 left-0 w-full h-[2px] bg-tertiary-fixed-dim/20 z-[60]">
+<div class="h-full bg-tertiary-fixed-dim w-1/3"></div>
+</div>
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 border-b border-[#C5A059]/20 bg-white/70 backdrop-blur-[20px] shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-20 py-8 w-full max-w-screen-2xl mx-auto">
+<span class="text-2xl font-serif italic text-[#0077B6] tracking-tighter">Azure Mas</span>
+<div class="hidden md:flex gap-12">
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-[#0077B6] border-b border-[#C5A059] pb-1 transition-all duration-500 ease-in-out" href="#">Home</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Menu</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Gallery</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Reservations</a>
+<a class="font-serif tracking-widest uppercase text-xs antialiased text-slate-500 hover:text-[#0077B6] transition-all duration-500 ease-in-out" href="#">Contact</a>
+</div>
+<button class="gold-ripple bg-white border border-[#C5A059] text-[#0077B6] px-8 py-3 font-serif tracking-widest uppercase text-xs antialiased scale-95 active:scale-90 transition-transform">
+                Réserver
+            </button>
+</div>
+</nav>
+<!-- Hero Section: Split Layout -->
+<section class="relative min-h-screen pt-32 flex items-center bg-surface overflow-hidden">
+<div class="max-w-screen-2xl mx-auto px-20 grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
+<!-- Left Side: Content -->
+<div class="space-y-8 animate-in fade-in slide-in-from-left duration-1000">
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-[#C5A059] uppercase tracking-[0.3em]">La Table Azure Mas</span>
+<h1 class="text-display font-display text-primary leading-tight">
+                        Produits d'Exception, Saveurs du Sud
+                    </h1>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                    Experience the essence of the Mediterranean. Our table is a journey through the finest local catch, sun-drenched seasonal produce, and a curated selection of great wines, all served against the serene backdrop of the Azure coast.
+                </p>
+<div class="pt-4">
+<button class="gold-ripple bg-white border border-[#C5A059] text-[#0077B6] px-12 py-5 font-serif tracking-widest uppercase text-sm antialiased shadow-lg hover:shadow-xl transition-all duration-500">
+                        RÉSERVER UNE TABLE
+                    </button>
+</div>
+</div>
+<!-- Right Side: Image -->
+<div class="relative h-[600px] md:h-[700px] w-full rounded-lg overflow-hidden shadow-2xl animate-in fade-in slide-in-from-right duration-1000">
+<img alt="Elegant restaurant table setting for a seaside dinner with golden light" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIjjgxFzeaE-y5ypX36p9gBZLIthTNFH7MaF-OUHr437JUqGcycjWbge0YRKuu7j_29cZ3MVcabgoyiAvVmcBeg2obd_CTFq7wiN0-ntfMQcn0t5CHBn3hnW2xUCV6KIGDPlECPQLkS1v9eYeNEgJx0LyjQIFHgQd4AIhQ9K3YSE2LUgAA2CvgK9k4fSPtaP_a7bUBxwqu2Vg0FI-nFkIcu1GrXx8lvW5Oslz7O-VNQM117B6eFw6qKHsBBHkBAOl7ehp4ZnhqOyw"/>
+<div class="absolute inset-0 ring-1 ring-inset ring-[#C5A059]/10 rounded-lg"></div>
+</div>
+</div>
+<!-- Decorative Scroll Indicator -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-30 animate-bounce">
+<span class="material-symbols-outlined text-primary text-3xl">expand_more</span>
+</div>
+</section>
+<!-- Content Intro -->
+<section class="py-section-padding bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto px-20 grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 space-y-8">
+<span class="text-label-sm font-label-sm text-[#C5A059] uppercase tracking-[0.3em]">Héritage Culinaire</span>
+<h2 class="text-h1 font-h1 text-primary">L'Art de Vivre Méditerranéen</h2>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Azure Mas n'est pas seulement un restaurant, c'est une célébration du terroir. Chaque plat raconte une histoire de pêcheurs locaux, de maraîchers passionnés et de traditions revisitées avec une précision contemporaine.
+                </p>
+<div class="pt-8">
+<a class="font-serif italic text-primary border-b border-[#C5A059] pb-2 hover:text-[#C5A059] transition-colors" href="#">Découvrir notre philosophie</a>
+</div>
+</div>
+<div class="col-span-12 md:col-span-7 grid grid-cols-2 gap-8">
+<div class="aspect-[4/5] overflow-hidden rounded-lg shadow-2xl translate-y-12 transition-transform duration-1000 hover:scale-[1.02]">
+<img alt="Mediterranean dish" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" data-alt="top-down shot of a gourmet seafood dish with fresh citrus and microgreens on a white ceramic plate with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADlm1UWRSGV7uUT_zy5Qa3ASzO6z-iN39SkJ0zHsI9T2gOLMNT5VZkRRO5uTs9gtr1AwKFe5dFYYH5X-nE74iPvdITsEmpIfLsCPUt8hV7bDpqceqRuHO2bDpJ1thSzHt-0-WeqgCbd6ENu5xVjY-z9yX_Acjezmuo7CVSlWqOLkaN-KcCKtcA4cpBY5gBE5XJwyAObs35YKz_iGo8LmR4SQtSfmONyHbecJiveat45Kvw0N7o26bUhNAB_Px8XFG4VxSFPubWZdU"/>
+</div>
+<div class="aspect-[4/5] overflow-hidden rounded-lg shadow-2xl transition-transform duration-1000 hover:scale-[1.02]">
+<img alt="Elegant cocktail" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" data-alt="close-up of a sparkling cocktail in a crystal glass with a sprig of lavender, sitting on a marble table in golden hour light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg4pWDdAv5qFGxNBN-x4kPZDC_XNZBafwEhvVkMMyjoA9zHLG02_yXjsE5LgjeEOQANuVAci2nqffnu87gR9KG5Z8jKwO3Wc7HRgZZUeVSIWtdygjdSg1a0gTEgonZe9-Ro_wF6PcdbHJUCMpHRgp4Drb0hCryu3SJAYZ5VAz0dmbVZqp4EnuKyoKEsV2GVE-66PjqfjTYgF8KrxNjjWS48WXysZAeOms7jawQFob8Sx6qxK9ieBqucf-bWd_lm9nyUjggRoOOS7Y"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Slider Section -->
+<section class="py-section-padding bg-surface">
+<div class="max-w-screen-2xl mx-auto px-20">
+<div class="text-center mb-24">
+<h2 class="text-h2 font-h2 text-[#0077B6]">Échos de Nos Convives</h2>
+<div class="w-24 h-[1px] bg-[#C5A059] mx-auto mt-6"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Quote 1 -->
+<div class="glass-card p-10 flex flex-col justify-between hover:-translate-y-4 transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<span class="material-symbols-outlined text-[#C5A059] text-4xl mb-6">format_quote</span>
+<p class="text-body-md font-body-md italic text-on-surface-variant leading-relaxed mb-8">
+                        "Produits impeccables, accords vins parfaits. Une expérience hors du temps face à l'horizon."
+                    </p>
+<div class="border-t border-[#C5A059]/10 pt-6">
+<p class="font-serif text-sm text-[#0077B6] font-bold">Jean-Marc D.</p>
+<p class="text-label-sm text-slate-400">Critique Gastronomique</p>
+</div>
+</div>
+<!-- Quote 2 -->
+<div class="glass-card p-10 flex flex-col justify-between hover:-translate-y-4 transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.04)] delay-100">
+<span class="material-symbols-outlined text-[#C5A059] text-4xl mb-6">format_quote</span>
+<p class="text-body-md font-body-md italic text-on-surface-variant leading-relaxed mb-8">
+                        "Le bar sauvage en croûte de sel est une révélation. Service d'une élégance rare."
+                    </p>
+<div class="border-t border-[#C5A059]/10 pt-6">
+<p class="font-serif text-sm text-[#0077B6] font-bold">Hélène R.</p>
+<p class="text-label-sm text-slate-400">Épicurienne</p>
+</div>
+</div>
+<!-- Quote 3 -->
+<div class="glass-card p-10 flex flex-col justify-between hover:-translate-y-4 transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.04)] delay-200">
+<span class="material-symbols-outlined text-[#C5A059] text-4xl mb-6">format_quote</span>
+<p class="text-body-md font-body-md italic text-on-surface-variant leading-relaxed mb-8">
+                        "Un cadre idyllique pour des saveurs qui explosent en bouche. Le Mas est magique."
+                    </p>
+<div class="border-t border-[#C5A059]/10 pt-6">
+<p class="font-serif text-sm text-[#0077B6] font-bold">Thomas L.</p>
+<p class="text-label-sm text-slate-400">Voyageur</p>
+</div>
+</div>
+<!-- Quote 4 -->
+<div class="glass-card p-10 flex flex-col justify-between hover:-translate-y-4 transition-all duration-700 shadow-[0_20px_40px_rgba(0,0,0,0.04)] delay-300">
+<span class="material-symbols-outlined text-[#C5A059] text-4xl mb-6">format_quote</span>
+<p class="text-body-md font-body-md italic text-on-surface-variant leading-relaxed mb-8">
+                        "La carte des vins est un trésor. Les conseils du sommelier sont d'une justesse infinie."
+                    </p>
+<div class="border-t border-[#C5A059]/10 pt-6">
+<p class="font-serif text-sm text-[#0077B6] font-bold">Sophie M.</p>
+<p class="text-label-sm text-slate-400">Oenologue</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Bento Grid -->
+<section class="py-section-padding bg-slate-50">
+<div class="max-w-screen-2xl mx-auto px-20">
+<div class="grid grid-cols-12 gap-8 h-[800px]">
+<div class="col-span-12 md:col-span-8 relative overflow-hidden group rounded-lg">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10"></div>
+<img alt="Luxury Mediterranean terrace at sunset" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="luxury mediterranean restaurant interior with white linen tables, stone walls, and large windows overlooking the sea at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBSiUgsDUQuwneKYp5pQM_0dWB9NBdOv80M04dpWmQUL0W4Gbm2qyGjVK0uSBTJGExKph6VX-VE8U02EIkj0XPFEkeM_evjRSYOfnxk-sR_wzTaQU0kxbChyvLvx94EVcSZ78KyoBUEWHa2spjBsHpyIMEhbMDz2zocDq5hOI__p-7pF0laQz7lbMNYj9iOQkv4bi2psi1mFu1RVzBpXbIYg3B7SUywdHG2x9OpSbTTCK2TTa1UQKeLnMj89HI1G1Nq0aU3YQEoWk"/>
+<div class="absolute bottom-12 left-12 z-20">
+<h3 class="text-h2 font-h2 text-white mb-2">La Terrasse Panoramique</h3>
+<p class="text-white/80 font-serif italic">Le bleu à perte de vue.</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 grid grid-rows-2 gap-8">
+<div class="relative overflow-hidden group rounded-lg">
+<div class="absolute inset-0 bg-primary/30 group-hover:bg-primary/10 transition-colors duration-700 z-10"></div>
+<img alt="Wine Cellar" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="dark atmospheric wine cellar with rows of aged wine bottles and soft warm backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DHZMp09bs-BhqI4W_dBUSZbd1n7vOOuUEHVt953AR2IC544smGQDRjJBamaY4UZwf8FqOYP1MwXB3w05x_rlRx1krxemAzmx0yJCBF81OjbLQilt4M2mMfmk_HMD2zjMrVP_rGSjjjBmbTLqxfGHxKx3oKgKA8sUC558CgMdMWP5pIz3FKchEzEIlQ-Ckx1HvvaEj5myFL6_JOOsRWnwZ7I46hroJDipfG7-LS-xgXCva3sN5IcXFz2MQYwomongBEQN-SEGqp0"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="text-white font-serif uppercase tracking-widest text-sm border-b border-white pb-2">La Cave d'Or</span>
+</div>
+</div>
+<div class="relative overflow-hidden group rounded-lg">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10"></div>
+<img alt="Chef at work" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="close-up of a chef's hands delicately plating a colorful gourmet salad with stainless steel tweezers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUZn-AZLZmIk5ZrTyTuh-Asrd4klc8ZkxzdJHxc7yCIIcVmYmkalwBMyg1pgu-1eST9ROdjcyz1ePf0WtVazLC5f1pFHkaeqmDw5clhQOrcV5bTQE4evDpKrTwdg6NyztomqXEQcd5lDEOGeMye5cTZOc5k9KsPsC9zFMSGahidPazDDHVorHPV6CmB-NJbnQZfFeusEObGBQsDa_U3P4E91f71m8zHKcH8ilqPimttqa4d9rw1cfNOaxYK6Vyw3fGfnIGaM-GySE"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="text-white font-serif uppercase tracking-widest text-sm border-b border-white pb-2">Le Geste Pur</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full border-t border-[#C5A059]/10 bg-slate-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-20 py-32 max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0 space-y-4 text-center md:text-left">
+<span class="text-lg font-serif text-slate-900 block">Azure Mas</span>
+<p class="font-serif italic text-sm text-slate-600 max-w-xs">
+                    © 2024 Azure Mas. Crafted for the Mediterranean Soul.
+                </p>
+</div>
+<div class="flex flex-col md:flex-row gap-12 text-center md:text-left mb-8 md:mb-0">
+<div class="space-y-4">
+<h4 class="text-xs uppercase tracking-widest font-bold text-slate-400">Navigation</h4>
+<ul class="space-y-2">
+<li><a class="font-serif italic text-sm text-slate-600 hover:text-[#0077B6] transition-colors duration-300" href="#">Privacy</a></li>
+<li><a class="font-serif italic text-sm text-slate-600 hover:text-[#0077B6] transition-colors duration-300" href="#">Terms</a></li>
+<li><a class="font-serif italic text-sm text-slate-600 hover:text-[#0077B6] transition-colors duration-300" href="#">Press</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-xs uppercase tracking-widest font-bold text-slate-400">Suivez-nous</h4>
+<div class="flex gap-4 justify-center md:justify-start">
+<a class="text-slate-400 hover:text-[#0077B6] transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-[#0077B6] transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+</div>
+</div>
+</div>
+<div class="text-center md:text-right">
+<span class="text-label-sm font-label-sm text-[#C5A059] uppercase tracking-[0.2em] mb-4 block">Newsletter</span>
+<div class="relative">
+<input class="bg-transparent border-b border-[#C5A059] py-2 px-0 focus:ring-0 focus:border-[#0077B6] text-sm italic font-serif w-64 placeholder:text-slate-400" placeholder="Votre email" type="email"/>
+<button class="absolute right-0 bottom-2 text-primary hover:text-[#C5A059] transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button -->
+<div class="fixed bottom-12 right-12 z-40 hidden md:block">
+<button class="group flex items-center gap-4 bg-[#0077B6] text-white pl-6 pr-3 py-3 rounded-full shadow-2xl hover:scale-105 transition-all duration-500">
+<span class="font-serif tracking-widest uppercase text-xs">Book a Table</span>
+<div class="bg-white/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-white">calendar_month</span>
+</div>
+</button>
+</div>
+</body></html>
