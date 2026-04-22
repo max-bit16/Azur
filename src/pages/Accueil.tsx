@@ -46,7 +46,7 @@ export default function Accueil() {
           </div>
           <div className="relative h-[600px] md:h-[700px] w-full rounded-lg overflow-hidden shadow-2xl reveal delay-200">
             <img
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
+              src="/images/hero.webp"
               alt="Table gastronomique Azure Mas"
               className="w-full h-full object-cover"
               width="900"
@@ -85,7 +85,7 @@ export default function Accueil() {
           <div ref={duoRef} className="col-span-12 md:col-span-7 grid grid-cols-2 gap-8">
             <div className="magnetic-img aspect-[4/5] overflow-hidden rounded-lg shadow-2xl translate-y-12">
               <img
-                src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80"
+                src="/images/heritage-left.webp"
                 alt="Plat méditerranéen Azure Mas"
                 className="w-full h-full object-cover"
                 width="600"
@@ -95,7 +95,7 @@ export default function Accueil() {
             </div>
             <div className="magnetic-img aspect-[4/5] overflow-hidden rounded-lg shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&q=80"
+                src="/images/heritage-right.webp"
                 alt="Cuisine méditerranéenne Azure Mas"
                 className="w-full h-full object-cover"
                 width="600"
@@ -144,7 +144,7 @@ export default function Accueil() {
             <div className="magnetic-img col-span-12 md:col-span-8 relative overflow-hidden group rounded-lg">
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10" />
               <img
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80"
+                src="/images/bento-terrasse.webp"
                 alt="La terrasse panoramique Azure Mas"
                 className="w-full h-full object-cover"
                 width="1200"
@@ -160,7 +160,7 @@ export default function Accueil() {
               <div className="magnetic-img relative overflow-hidden group rounded-lg">
                 <div className="absolute inset-0 bg-primary/30 group-hover:bg-primary/10 transition-colors duration-700 z-10" />
                 <img
-                  src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80"
+                  src="/images/bento-cave.webp"
                   alt="La cave à vins Azure Mas"
                   className="w-full h-full object-cover"
                   width="600"
@@ -174,7 +174,7 @@ export default function Accueil() {
               <div className="magnetic-img relative overflow-hidden group rounded-lg">
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10" />
                 <img
-                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&q=80"
+                  src="/images/bento-chef.webp"
                   alt="Chef en cuisine Azure Mas"
                   className="w-full h-full object-cover"
                   width="600"
