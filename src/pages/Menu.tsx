@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { useTilt } from '../hooks/useTilt'
 
@@ -69,6 +69,7 @@ const sommelierSections = [
 
 export default function Menu() {
   useReveal()
+  useEffect(() => { document.title = 'Menu — Azure Mas' }, [])
   const dishesRef = useRef<HTMLDivElement>(null)
   useTilt(dishesRef)
 

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { useMagneticZoom } from '../hooks/useMagneticZoom'
 
+
 const images = [
   { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', alt: 'Table gastronomique Azure Mas', label: 'La Salle Principale', span: 'col-span-8 row-span-3' },
   { src: 'https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=800&q=80', alt: 'Plat de la mer Azure Mas', label: 'Produits de la Mer', span: 'col-span-4 row-span-2' },
@@ -16,6 +17,8 @@ export default function Galerie() {
   const gridRef = useRef<HTMLDivElement>(null)
   useMagneticZoom(gridRef)
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
+
+  useEffect(() => { document.title = 'Galerie — Azure Mas' }, [])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -46,7 +49,7 @@ export default function Galerie() {
           {images.map((img, i) => (
             <div
               key={i}
-              className={`${img.span} magnetic-img relative overflow-hidden group rounded-DEFAULT shadow-sunlight border border-[#C5A059]/10 cursor-pointer reveal`}
+              className={`${img.span} magnetic-img relative overflow-hidden group rounded shadow-sunlight border border-[#C5A059]/10 cursor-pointer reveal`}
               onClick={() => setSelectedIdx(i)}
             >
               <img
@@ -78,12 +81,14 @@ export default function Galerie() {
         >
           <button
             className="absolute top-10 right-10 text-white hover:text-[#C5A059] transition-colors z-10"
+            aria-label="Fermer la galerie"
             onClick={() => setSelectedIdx(null)}
           >
             <span className="material-symbols-outlined text-4xl">close</span>
           </button>
           <button
             className="absolute left-10 text-white/40 hover:text-white z-10"
+            aria-label="Image précédente"
             onClick={(e) => { e.stopPropagation(); setSelectedIdx((selectedIdx - 1 + images.length) % images.length) }}
           >
             <span className="material-symbols-outlined text-6xl">chevron_left</span>
@@ -96,6 +101,8 @@ export default function Galerie() {
               src={images[selectedIdx].src}
               alt={images[selectedIdx].alt}
               className="max-h-[80vh] max-w-full border border-white/20 shadow-2xl"
+              width="800"
+              height="600"
             />
             <div className="mt-8 text-center text-white">
               <p className="font-display text-xl tracking-widest uppercase">{images[selectedIdx].label}</p>
@@ -104,6 +111,7 @@ export default function Galerie() {
           </div>
           <button
             className="absolute right-10 text-white/40 hover:text-white z-10"
+            aria-label="Image suivante"
             onClick={(e) => { e.stopPropagation(); setSelectedIdx((selectedIdx + 1) % images.length) }}
           >
             <span className="material-symbols-outlined text-6xl">chevron_right</span>

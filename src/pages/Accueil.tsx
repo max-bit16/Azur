@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 import { useTilt } from '../hooks/useTilt'
@@ -7,6 +7,7 @@ import { useMagneticZoom } from '../hooks/useMagneticZoom'
 export default function Accueil() {
   useReveal()
   useScrollProgress()
+  useEffect(() => { document.title = 'Azure Mas — Restaurant Gastronomique Méditerranéen | Provence' }, [])
   const testimonialsRef = useRef<HTMLDivElement>(null)
   const bentoRef = useRef<HTMLDivElement>(null)
   const duoRef = useRef<HTMLDivElement>(null)

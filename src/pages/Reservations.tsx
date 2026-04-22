@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
 export default function Reservations() {
   useReveal()
+  useEffect(() => { document.title = 'Réservations — Azure Mas' }, [])
 
   return (
     <main className="bg-surface text-on-surface">

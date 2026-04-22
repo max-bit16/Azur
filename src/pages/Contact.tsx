@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
 export default function Contact() {
   useReveal()
+  useEffect(() => { document.title = 'Nous Trouver — Azure Mas' }, [])
 
   return (
     <main className="bg-surface text-on-surface pt-[160px]">
@@ -11,7 +13,7 @@ export default function Contact() {
           <span className="text-label-sm font-label-sm text-primary uppercase tracking-[0.3em] mb-4 block">Un Souffle de Mer</span>
           <h1 className="font-display text-display text-on-surface mb-6">Nous Trouver</h1>
           <p className="text-body-lg font-body-lg text-secondary italic">
-            L'art de la table rencontre la sérénité architecturale sur les falaises d'Antibes.
+            L'art de la table rencontre la sérénité architecturale au cœur de la Provence.
           </p>
         </div>
 
@@ -23,10 +25,10 @@ export default function Contact() {
               <div className="space-y-2">
                 <h3 className="font-display text-h3 text-primary flex items-center gap-3">
                   <span className="material-symbols-outlined text-tertiary-container">location_on</span>
-                  Résidence du Cap
+                  Le Mas
                 </h3>
                 <p className="text-body-md text-on-surface-variant pl-9 leading-relaxed">
-                  45 Boulevard de la Garoupe<br />06160 Antibes, France
+                  12 Route des Calanques<br />83330 Le Castellet, France
                 </p>
               </div>
               <div className="space-y-2">
@@ -34,8 +36,8 @@ export default function Contact() {
                   <span className="material-symbols-outlined text-tertiary-container">call</span>
                   Réservations
                 </h3>
-                <a href="tel:+33493613100" className="text-body-md text-on-surface-variant pl-9 block hover:text-primary transition-colors">
-                  +33 (0)4 93 61 31 00
+                <a href="tel:+33494001234" className="text-body-md text-on-surface-variant pl-9 block hover:text-primary transition-colors">
+                  +33 (0)4 94 00 12 34
                 </a>
               </div>
               <div className="space-y-2">
@@ -75,8 +77,8 @@ export default function Contact() {
           {/* Carte */}
           <div className="lg:col-span-7 h-[600px] lg:h-auto rounded-xl overflow-hidden shadow-sunlight border border-[#C5A059]/20 group reveal delay-200">
             <iframe
-              title="Azure Mas — Antibes, Côte d'Azur"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11558.026537019888!2d7.106738!3d43.568669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd2c7b2b9c4ad%3A0x2d6f0e5a7b36b3a!2sAntibes!5e0!3m2!1sfr!2sfr!4v1714000000000!5m2!1sfr!2sfr"
+              title="Azure Mas — Le Castellet, Provence"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.0!2d5.7761!3d43.1994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9b5c77e8b1c1d%3A0x0!2sLe+Castellet!5e0!3m2!1sfr!2sfr!4v1714000000000!5m2!1sfr!2sfr"
               className="w-full h-full min-h-[600px] border-0 grayscale contrast-125 sepia-[20%]"
               allowFullScreen
               loading="lazy"
