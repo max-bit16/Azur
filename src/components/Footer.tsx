@@ -20,6 +20,7 @@ export default function Footer() {
                 { label: 'Galerie', to: '/galerie' },
                 { label: 'Réservations', to: '/reservations' },
                 { label: 'Contact', to: '/contact' },
+                { label: 'Mentions légales', to: '/mentions-legales' },
               ].map(({ label, to }) => (
                 <li key={to}>
                   <Link

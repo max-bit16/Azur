@@ -32,11 +32,39 @@ const dishes = [
   },
 ]
 
-const wines = [
-  { name: 'Château Miraval Côtes de Provence', desc: 'Notes de fleurs blanches et fraise des bois', price: '75€' },
-  { name: "Garrus by Château d'Esclans", desc: 'Puissance, élégance, le summum du rosé', price: '190€' },
-  { name: 'Domaine Ott - Clos Mireille', desc: 'Minéralité saline, reflets cristallins', price: '95€' },
-  { name: 'Minuty 281', desc: 'Intensité aromatique, design iconique', price: '120€' },
+const sommelierSections = [
+  {
+    categorie: 'Blancs Corses',
+    icon: 'wine_bar',
+    vins: [
+      { nom: 'Domaine Abbatucci – Général de la Révolution', accord: 'Langoustine grillée', prix: '18€' },
+      { nom: 'Clos Canarelli – Blanc', accord: 'Burrata AOP', prix: '14€' },
+    ],
+  },
+  {
+    categorie: 'Champagnes',
+    icon: 'local_bar',
+    vins: [
+      { nom: 'Billecart-Salmon – Blanc de Blancs', accord: 'Saint-Pierre truffé', prix: '32€' },
+      { nom: 'Ruinart – Rosé', accord: 'Langoustine grillée', prix: '28€' },
+    ],
+  },
+  {
+    categorie: 'Grands Crus Rouges',
+    icon: 'wine_bar',
+    vins: [
+      { nom: 'Château Pichon Baron – Pauillac', accord: 'Agneau de Sisteron', prix: '45€' },
+      { nom: 'Domaine de Trévallon – Rouge', accord: 'Fromages affinés', prix: '22€' },
+    ],
+  },
+  {
+    categorie: 'Vins Nature',
+    icon: 'eco',
+    vins: [
+      { nom: 'Château Romanin – Alpilles Blanc', accord: 'Burrata AOP', prix: '12€' },
+      { nom: 'La Grange de Quatre Sous – Blanc', accord: 'Poisson du jour', prix: '11€' },
+    ],
+  },
 ]
 
 export default function Menu() {
@@ -96,30 +124,35 @@ export default function Menu() {
       </section>
 
       {/* Sommelier */}
-      <section className="bg-slate-50 py-section-padding">
-        <div className="max-w-screen-2xl mx-auto px-20">
+      <section className="bg-slate-50 py-section-padding px-20">
+        <div className="max-w-screen-2xl mx-auto">
           <div className="text-center mb-20 reveal">
-            <p className="text-label-sm font-label-sm text-tertiary uppercase mb-4 tracking-[0.3em]">La Cave d'Exception</p>
-            <h2 className="text-h1 font-display text-primary">Le Sommelier Virtuel</h2>
+            <span className="text-label-sm font-label-sm text-[#C5A059] uppercase tracking-[0.3em] block mb-4">
+              Accords Mets &amp; Vins
+            </span>
+            <h2 className="text-h2 font-display text-primary">Le Sommelier</h2>
+            <div className="w-24 h-[1px] bg-[#C5A059] mx-auto mt-6" />
           </div>
-          <div className="flex flex-wrap justify-center gap-12 mb-20 border-b border-[#C5A059]/10 pb-6">
-            {['Provence Rosés', 'Corsican Whites', 'Champagnes', 'Grands Crus Rouges'].map((cat, i) => (
-              <button
-                key={cat}
-                className={`font-serif tracking-widest uppercase text-xs pb-2 transition-colors ${i === 0 ? 'text-[#0077B6] border-b border-[#C5A059]' : 'text-slate-400 hover:text-primary'}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
-            {wines.map((wine) => (
-              <div key={wine.name} className="flex justify-between items-end border-b border-[#C5A059]/10 pb-4 group reveal">
-                <div>
-                  <p className="font-display text-lg text-primary group-hover:translate-x-2 transition-transform duration-500">{wine.name}</p>
-                  <p className="text-body-md text-sm text-on-surface-variant italic">{wine.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sommelierSections.map((section, i) => (
+              <div key={section.categorie} className={`reveal glass-card p-10 space-y-6 delay-${i}00`}>
+                <div className="flex items-center gap-4 border-b border-[#C5A059]/20 pb-6">
+                  <span className="material-symbols-outlined text-[#C5A059] text-3xl">{section.icon}</span>
+                  <h3 className="text-h3 font-display text-primary">{section.categorie}</h3>
                 </div>
-                <span className="font-display text-tertiary ml-8 shrink-0">{wine.price}</span>
+                <div className="space-y-6">
+                  {section.vins.map((vin) => (
+                    <div key={vin.nom} className="flex justify-between items-start gap-4">
+                      <div className="space-y-1">
+                        <p className="font-serif text-on-surface font-medium">{vin.nom}</p>
+                        <p className="text-label-sm text-[#C5A059] uppercase tracking-widest">
+                          Accord : {vin.accord}
+                        </p>
+                      </div>
+                      <span className="font-serif italic text-[#0077B6] whitespace-nowrap">{vin.prix}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

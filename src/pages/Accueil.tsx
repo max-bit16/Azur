@@ -70,7 +70,14 @@ export default function Accueil() {
             <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
               Azure Mas n'est pas seulement un restaurant, c'est une célébration du terroir. Chaque plat raconte une histoire de pêcheurs locaux, de maraîchers passionnés et de traditions revisitées avec une précision contemporaine.
             </p>
-            <a className="font-serif italic text-primary border-b border-[#C5A059] pb-2 hover:text-[#C5A059] transition-colors" href="#">
+            <a
+              className="font-serif italic text-primary border-b border-[#C5A059] pb-2 hover:text-[#C5A059] transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              href="#experience"
+            >
               Découvrir notre philosophie
             </a>
           </div>
@@ -130,13 +137,13 @@ export default function Accueil() {
       </section>
 
       {/* Bento Grid */}
-      <section className="py-section-padding bg-slate-50">
+      <section id="experience" className="py-section-padding bg-slate-50">
         <div className="max-w-screen-2xl mx-auto px-20">
           <div ref={bentoRef} className="grid grid-cols-12 gap-8 h-[800px]">
             <div className="magnetic-img col-span-12 md:col-span-8 relative overflow-hidden group rounded-lg">
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700 z-10" />
               <img
-                src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200&q=80"
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80"
                 alt="La terrasse panoramique Azure Mas"
                 className="w-full h-full object-cover"
                 width="1200"

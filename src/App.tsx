@@ -6,6 +6,7 @@ import Menu from './pages/Menu'
 import Galerie from './pages/Galerie'
 import Reservations from './pages/Reservations'
 import Contact from './pages/Contact'
+import MentionsLegales from './pages/MentionsLegales'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/galerie" element={<Galerie />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
       </Routes>
       <Footer />
     </BrowserRouter>
